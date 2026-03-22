@@ -1,0 +1,485 @@
+:root {
+  color-scheme: light;
+  font-family: "Space Grotesk", "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  background-color: #fefaf5;
+  color: #120f0a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #fff7ed, #fefaf5 55%, #f6efe4);
+}
+
+.app-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem clamp(1rem, 3vw, 3rem) 4rem;
+}
+
+.hero-section {
+  padding: 2rem 0 3rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
+  font-size: 0.7rem;
+  color: #f97316;
+  font-weight: 600;
+}
+
+.hero-section h1 {
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  margin: 0.5rem 0 1rem;
+  line-height: 1.15;
+}
+
+.lede {
+  max-width: 720px;
+  color: rgba(18, 15, 10, 0.75);
+}
+
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(18, 15, 10, 0.15);
+  border-radius: 999px;
+  padding: 0.6rem 1rem;
+  background: #fff;
+  box-shadow: 0 20px 80px rgba(249, 115, 22, 0.12);
+}
+
+.search-wrapper input {
+  flex: 1;
+  border: none;
+  font-size: 1rem;
+  outline: none;
+}
+
+.search-wrapper span {
+  font-size: 0.85rem;
+  color: rgba(18, 15, 10, 0.5);
+}
+
+.stat-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.stat-badge {
+  flex: 1;
+  min-width: 160px;
+  border: 1px solid;
+  border-radius: 1.25rem;
+  padding: 1rem 1.25rem;
+  background: #fff;
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: rgba(18, 15, 10, 0.6);
+}
+
+.filter-section {
+  margin-top: 3rem;
+  padding: 2rem;
+  border-radius: 2rem;
+  background: linear-gradient(120deg, #fff, #fff4e6);
+  border: 1px solid rgba(18, 15, 10, 0.06);
+  box-shadow: 0 24px 60px rgba(12, 74, 110, 0.08);
+}
+
+.filter-headline h2 {
+  margin: 0;
+}
+
+.pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.pill {
+  padding: 0.55rem 1.25rem;
+  border-radius: 999px;
+  border: 1px solid rgba(18, 15, 10, 0.2);
+  background: transparent;
+  cursor: pointer;
+  transition: 0.2s ease;
+  font-weight: 500;
+}
+
+.pill.active {
+  background: #120f0a;
+  color: #fff;
+  border-color: #120f0a;
+}
+
+.grid-section {
+  margin-top: 3rem;
+}
+
+.grid-headline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+}
+
+.cta-card {
+  margin-left: auto;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  background: #120f0a;
+  color: #fff;
+  min-width: 220px;
+}
+
+.cta-card button {
+  width: 100%;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 999px;
+  padding: 0.75rem 1rem;
+  background: #f97316;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.recipes-grid {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.recipe-card {
+  border-radius: 1.5rem;
+  border: 1px solid rgba(18, 15, 10, 0.08);
+  background: #fff;
+  box-shadow: 0 24px 60px rgba(12, 74, 110, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 32px 80px rgba(12, 74, 110, 0.18);
+}
+
+.recipe-card__image {
+  height: 200px;
+  border-radius: 1.5rem 1.5rem 0 0;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.recipe-chip {
+  position: absolute;
+  inset: 1rem auto auto 1rem;
+  background: rgba(18, 15, 10, 0.85);
+  color: #fff;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+.recipe-card__body {
+  padding: 1.5rem;
+}
+
+.recipe-category {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.15rem;
+  color: #f97316;
+  font-weight: 600;
+}
+
+.recipe-card__body h3 {
+  margin: 0.25rem 0 0.5rem;
+}
+
+.recipe-description {
+  color: rgba(18, 15, 10, 0.65);
+  font-size: 0.95rem;
+  min-height: 60px;
+}
+
+.recipe-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  font-size: 0.85rem;
+  color: rgba(18, 15, 10, 0.7);
+  margin: 0.75rem 0;
+}
+
+.recipe-tags {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.recipe-tags li {
+  padding: 0.35rem 0.75rem;
+  background: #fef3c7;
+  color: #92400e;
+  border-radius: 999px;
+  font-size: 0.75rem;
+}
+
+.empty-state {
+  margin-top: 2rem;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  background: #fff;
+}
+
+.collections {
+  margin-top: 4rem;
+}
+
+.collections-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.collection-card {
+  border: 1px solid;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  background: #fff;
+  position: relative;
+}
+
+.collection-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  position: absolute;
+  inset: 1.25rem 1.25rem auto auto;
+}
+
+.collection-card span {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: rgba(18, 15, 10, 0.6);
+}
+
+.cta {
+  margin-top: 4rem;
+  padding: 2.5rem;
+  border-radius: 2rem;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+}
+
+.cta-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.cta button {
+  border-radius: 999px;
+  border: none;
+  padding: 0.85rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cta .primary {
+  background: #f97316;
+  color: #fff;
+}
+
+.cta .ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+}
+
+footer {
+  margin-top: 3rem;
+  padding: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+  color: rgba(18, 15, 10, 0.7);
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 10;
+}
+
+.modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 10, 9, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.modal__content {
+  position: relative;
+  background: #fff;
+  border-radius: 1.5rem;
+  width: min(900px, calc(100% - 2rem));
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 2rem;
+  box-shadow: 0 30px 120px rgba(0, 0, 0, 0.3);
+}
+
+.modal__close {
+  position: sticky;
+  top: 0;
+  margin-left: auto;
+  border: none;
+  background: #120f0a;
+  color: #fff;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.modal__hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.modal__hero img {
+  width: min(300px, 100%);
+  border-radius: 1.25rem;
+  object-fit: cover;
+}
+
+.modal__grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  margin-top: 2rem;
+}
+
+.bullet-list,
+.step-list {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.step-list li {
+  margin-bottom: 0.75rem;
+}
+
+.step-list span {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.nutrition {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.nutrition-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 0.75rem;
+}
+
+.nutrition-grid p {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.spotlight {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.spotlight li {
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.spotlight li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #f97316;
+}
+
+@media (max-width: 720px) {
+  .hero-actions {
+    gap: 1rem;
+  }
+  .stat-row {
+    flex-direction: column;
+  }
+  .grid-headline {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .cta {
+    flex-direction: column;
+  }
+  .cta-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+  .cta button {
+    width: 100%;
+  }
+}
