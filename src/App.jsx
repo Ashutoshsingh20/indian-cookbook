@@ -1,10 +1,12 @@
 import { useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
   recipes,
   recipeCategories,
   regionalCollections,
 } from "./data/recipes";
 import "./App.css";
+import LanguageSwitcher from "./components/LanguageSwitcher";
 
 const StatBadge = ({ label, value, accent }) => (
   <div className="stat-badge" style={{ borderColor: accent }}>
@@ -111,9 +113,11 @@ const RecipeModal = ({ recipe, onClose }) => (
 );
 
 function App() {
+  const { t } = useTranslation();
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
   const [selectedRecipe, setSelectedRecipe] = useState(null);
+  const [theme, setTheme] = useState("light");
 
   const filteredRecipes = useMemo(() => {
     const query = search.toLowerCase();
@@ -138,13 +142,16 @@ function App() {
   }, []);
 
   return (
-    <div className="app-shell">
+    <div className="app-shell" data-theme={theme}>
       <header className="hero-section">
-        <p className="eyebrow">Cookbook • India Edition</p>
-        <h1>
-          All the warmth of Indian kitchens, beautifully indexed for your next
-          meal plan.
-        </h1>
+        <p className="eyebrow">{t("header.title")} • India Edition</p>
+        <LanguageSwitcher />
+        <div className="theme-toggle">
+          <button onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
+            {t("buttons.toggleTheme")}
+          </button>
+        </div>
+        <h1>{t("header.subtitle")}</h1>
         <p className="lede">
           Explore iconic dishes, discover new regions, and cook confidently with
           well-tested ingredient lists, prep tips, and plating ideas.
@@ -153,7 +160,7 @@ function App() {
           <div className="search-wrapper">
             <input
               type="search"
-              placeholder="Search by dish, ingredient, or region"
+              placeholder={t("sections.searchPlaceholder")}
               value={search}
               onChange={(event) => setSearch(event.target.value)}
             />
@@ -169,7 +176,7 @@ function App() {
 
       <section className="filter-section">
         <div className="filter-headline">
-          <h2>Browse by course</h2>
+          <h2>{t("sections.explore")}</h2>
           <p>Tap a category to narrow the grid. Search stacks on top.</p>
         </div>
         <div className="pill-row">
@@ -188,7 +195,7 @@ function App() {
       <section className="grid-section">
         <div className="grid-headline">
           <div>
-            <p className="eyebrow">Featured recipes</p>
+            <p className="eyebrow">{t("sections.popular")}</p>
             <h2>
               {category === "All" ? "Seasonless staples" : `${category} picks`}
             </h2>
@@ -200,15 +207,7 @@ function App() {
           </div>
           <div className="cta-card">
             <p>Want to add your heirloom recipe?</p>
-            <button
-              onClick={() =>
-                alert(
-                  "In a production build, this would open a submission form or CMS."
-                )
-              }
-            >
-              Submit recipe
-            </button>
+            <button>{t("buttons.submit")}</button>
           </div>
         </div>
 
@@ -233,7 +232,7 @@ function App() {
       </section>
 
       <section className="collections">
-        <h2>Regional collections</h2>
+        <h2>{t("sections.explore")}</h2>
         <div className="collections-grid">
           {regionalCollections.map((collection) => (
             <article
@@ -247,21 +246,6 @@ function App() {
               <span>{collection.highlight}</span>
             </article>
           ))}
-        </div>
-      </section>
-
-      <section className="cta">
-        <div>
-          <p className="eyebrow">Weekly planning</p>
-          <h2>Build smart menus in minutes</h2>
-          <p>
-            Mix-and-match dal, sabzi, and grain pairings, export grocery lists,
-            and adapt for dietary preferences.
-          </p>
-        </div>
-        <div className="cta-actions">
-          <button className="primary">Plan a menu</button>
-          <button className="ghost">Download PDF</button>
         </div>
       </section>
 

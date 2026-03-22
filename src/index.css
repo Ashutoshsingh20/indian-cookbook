@@ -11,9 +11,19 @@
   -webkit-font-smoothing: antialiased;
 }
 
+[data-theme="dark"] {
+  --text-color: #e5e5e5;
+  --background-color: #333333;
+}
+
+/** Default light theme */
 body {
+  --text-color: #120f0a;
+  --background-color: #fefaf5;
   margin: 0;
   min-height: 100vh;
+  background: var(--background-color);
+  color: var(--text-color);
 }
 
 * {
